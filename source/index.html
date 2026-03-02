@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sainirnay M. | Aerospace Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/stars.js" defer></script>
+</head>
+<body>
+
+    <div class="galaxy-blur"></div>
+
+    <nav class="top-nav">
+        <a href="index.html" class="nav-name">SAINIRNAY M.</a>
+        <div class="nav-links">
+            <a href="files/resume.pdf" target="_blank">Resume</a>
+            <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+            <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I’m <span class="highlight">Sainirnay Mantrala</span></h1>
+            <p class="hero-tagline">Propulsion • Astrodynamics • Music • Problem-Solving</p>
+            <div class="hero-blurb">
+                <p>
+                    I explore complex systems and creative ideas across disciplines. From designing high-performance rockets to composing music,
+                    I combine analytical thinking with hands-on experimentation to turn ideas into real-world results.
+                    I thrive on solving problems that challenge conventional approaches and push boundaries, whether in engineering or creative pursuits.
+                </p>
+            </div>
+        </div>
+        <!-- Solo Hero Image -->
+        <div class="hero-image">
+            <img src="images/profile2.png" alt="Sainirnay M.">
+        </div>
+    </section>
+
+    <!-- Featured Projects Divider -->
+    <div class="timeline-divider">
+        <h2 class="section-title">FEATURED PROJECTS</h2>
+    </div>
+
+    <!-- Featured Projects Timeline (Vertical Zig-Zag) -->
+    <main class="timeline-container">
+        <div class="trajectory-axis">
+            <div class="dotted-line"></div>
+            <div class="rocket-tracker" id="rocket">
+                <svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="28" y="10" width="8" height="40" rx="4" fill="#D2691E" />
+                    <rect x="20" y="24" width="5" height="28" rx="2.5" fill="#E0E0E0" />
+                    <rect x="39" y="24" width="5" height="28" rx="2.5" fill="#E0E0E0" />
+                    <path d="M32 18L36 34L42 42L32 40L22 42L28 34L32 18Z" fill="white" stroke="#333" stroke-width="0.5"/>
+                    <rect x="30" y="38" width="4" height="6" rx="1" fill="white" stroke="#333" stroke-width="0.5"/>
+                    <circle cx="32" cy="52" r="4" fill="orange" opacity="0.8">
+                        <animate attributeName="r" values="3;6;3" dur="0.15s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0.4;1;0.4" dur="0.15s" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Timeline Items with Zig-Zag Card+Image -->
+
+        <div class="timeline-item">
+            <div class="half">
+                <a href="projects/ignition.html" class="project-card featured">
+                    <span class="project-date">SUMMER 2025</span>
+                    <h3>Ignition Coil Analysis</h3>
+                    <p>Researched coil-on-plug systems, identifying hardware failure modes like polarity flips and diode faults.</p>
+                    <div class="tags"><span class="tag">Electromagnetics</span><span class="tag">Internship</span></div>
+                </a>
+            </div>
+            <div class="half">
+                <div class="project-image">
+                    <img src="images/feature/ignition_feature.png" alt="Ignition Coil">
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reverse">
+            <div class="half">
+                <a href="projects/trajectory.html" class="project-card featured">
+                    <span class="project-date">RESEARCH</span>
+                    <h3>Trajectory Optimization</h3>
+                    <p>Python tool for 3D continuous-thrust transfers using variable timesteps for stable convergence.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">Orbital Mechanics</span></div>
+                </a>
+            </div>
+            <div class="half">
+                <div class="project-image">
+                    <img src="images/feature/traj_feature.png" alt="Trajectory Optimization">
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="half">
+                <a href="projects/spar.html" class="project-card featured">
+                    <span class="project-date">WINTER 2025</span>
+                    <h3>Structural Wing Optimization</h3>
+                    <p>MATLAB suite for thin-wall spar analysis, achieving 44% weight reduction via Carbon/Epoxy optimization.</p>
+                    <div class="tags"><span class="tag">MATLAB</span><span class="tag">Structural</span></div>
+                </a>
+            </div>
+            <div class="half">
+                <div class="project-image">
+                    <img src="images/feature/spar_feature.png" alt="Wing Spar">
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reverse">
+            <div class="half">
+                <a href="projects/grain.html" class="project-card featured">
+                    <span class="project-date">JAN 2026</span>
+                    <h3>Solid Rocket Propulsion</h3>
+                    <p>Designed HEI bolts and casting assemblies for student rocket club grain modeling trade studies.</p>
+                    <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Rocketry</span></div>
+                </a>
+            </div>
+            <div class="half">
+                <div class="project-image">
+                    <img src="images/feature/prop_feature.png" alt="Solid Rocket Propulsion">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Additional Horizontal Projects -->
+    <div class="timeline-divider">
+        <h2 class="section-title">ADDITIONAL PROJECTS</h2>
+    </div>
+    <section class="horizontal-projects">
+        <div class="project-row">
+            <a href="projects/music.html" class="project-card horizontal">
+                <span class="project-date">SIGNAL PROCESSING</span>
+                <h3>Raga Classifier</h3>
+                <p>Algorithmic music analysis system classifying Indian Classical Ragas via spectral feature extraction.</p>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Audio DSP</span></div>
+            </a>
+            <a href="projects/lspace.html" class="project-card horizontal">
+                <span class="project-date">PROPOSAL</span>
+                <h3>Martian CO2 Cooling System</h3>
+                <p>NASA NPWEE proposal for venting cooling system to manage high-power, short-duration electronics on Mars.</p>
+                <div class="tags"><span class="tag">Thermal Engineering</span><span class="tag">Mars Exploration</span><span class="tag">Robotics</span></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Rocket Script -->
+    <script>
+        let currentPos = 0;
+        let targetPos = 0;
+        const rocket = document.getElementById('rocket');
+        const timeline = document.querySelector('.timeline-container');
+
+        function updateRocket() {
+            if (!timeline) return;
+            const timelineTop = timeline.offsetTop;
+            const timelineHeight = timeline.offsetHeight;
+            const scrollY = window.scrollY + (window.innerHeight / 2);
+
+            targetPos = ((scrollY - timelineTop) / timelineHeight) * 100;
+            targetPos = Math.max(0, Math.min(100, targetPos));
+
+            currentPos += (targetPos - currentPos) * 0.08;
+            rocket.style.top = `${currentPos}%`;
+            requestAnimationFrame(updateRocket);
+        }
+        updateRocket();
+    </script>
+
+</body>
+</html>

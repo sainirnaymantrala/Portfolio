@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trajectory Optimization | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Trajectory Optimization</h1>
+        <p class="hero-tagline">Computational Modeling · Optimal Control · Numerical Optimization</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            Python · IPOPT · Direct Transcription · Astrodynamics
+        </p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>PROJECT FOCUS</h2>
+        <p>
+            I developed a computational framework for optimizing low-thrust orbital transfers using continuous control and direct transcription methods.
+            The project investigates how discretization strategy influences solver convergence, trajectory structure, and propellant efficiency — a central challenge in modern astrodynamics.
+        </p>
+        <p>
+            Rather than treating timestep length as fixed, I introduced it as a design variable within the optimization. This allowed the solver to allocate resolution where the dynamics are most sensitive, dramatically improving convergence for high-eccentricity transfers.
+        </p>
+        <p>
+            To illustrate these methods, the example mission shown in the figure is a <strong>continuous-thrust transfer from a 1100 km orbit to a 300 km orbit</strong>, demonstrating multi-revolution descent and efficient orbital energy reduction.
+            Subsequent plots of spacecraft mass and thrust in this page are drawn from this same illustrative mission profile.
+        </p>
+    </div>
+
+    <div class="visual-side">
+
+        <div class="image-card" style="transform: scale(1.04);">
+            <img src="../images/trajectory_opt/trajectory.png" alt="2D low-thrust trajectory plot">
+        </div>
+
+        <!-- CLEANED MISSION PROFILE -->
+        <div class="data-strip" style="margin-top: 2rem;">
+
+            <div class="data-item">
+                <span class="block-number">INITIAL ALT.</span>
+                <p style="font-size:0.95rem;">1100 km</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">FINAL ALT.</span>
+                <p style="font-size:0.95rem;">300 km</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">DRY MASS</span>
+                <p style="font-size:0.95rem;">1000 kg</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">ISP</span>
+                <p style="font-size:0.95rem;">400 s</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">PROP. MASS</span>
+                <p style="font-size:0.95rem;">112 kg</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">OBJECTIVE</span>
+                <p style="font-size:0.95rem;">Minimize Fuel</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TECHNICAL APPROACH -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / TECHNICAL APPROACH</span>
+        <h2>MODELING & OPTIMIZATION STRATEGY</h2>
+        <ul class="blueprint-list">
+            <li>Formulated planar spacecraft dynamics with coupled radial and tangential thrust control.</li>
+            <li>Implemented a direct optimization architecture using <strong>IPOPT</strong> to solve the nonlinear program.</li>
+            <li>Added timestep duration as a decision variable to improve numerical conditioning.</li>
+            <li>Applied nondimensionalization to stabilize gradients and reduce solver sensitivity.</li>
+            <li>Framework implemented in Python using <strong>csdl_alpha</strong> and <strong>modopt</strong>, with <strong>PyKEP</strong> providing Lambert solutions for initial guesses.</li>
+            <li>Designed to remain extensible for higher-fidelity force models and alternative transcription strategies.</li>
+        </ul>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/trajectory_opt/prop_mass.png" alt="Mass Evolution">
+        </div>
+        <p class="caption">
+            Spacecraft mass depletion throughout the transfer, with the optimized solution requiring only <strong>112 kg of propellant</strong>.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- KEY INSIGHT -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / KEY INSIGHT</span>
+        <h2>WHAT CHANGED THE SOLUTION</h2>
+        <p>
+            Allowing radial thrust revealed trajectory behaviors that fixed-structure formulations often suppress.
+            During orbital energy reduction, the optimizer naturally leveraged radial acceleration to reshape the orbit more efficiently — lowering propellant consumption while maintaining feasible thrust levels.
+        </p>
+        <p>
+            More importantly, the variable-timestep formulation transformed the numerical landscape of the problem.
+            Transfers that previously struggled to converge became stable, highlighting how transcription choices often dominate solver performance in trajectory optimization.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/trajectory_opt/thrust.png" alt="Thrust Profile">
+        </div>
+        <p class="caption">Optimal thrust magnitude and steering history.</p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- ONGOING WORK -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">04 / ONGOING WORK</span>
+        <h2>SCALING TO THREE DIMENSIONS</h2>
+        <p>
+            Current development focuses on transitioning the formulation from planar motion to fully three-dimensional Cartesian dynamics.
+            The added control authority increases state coupling and numerical stiffness, requiring careful scaling and constraint management.
+        </p>
+        <p>
+            I am also evaluating alternative transcription strategies — including collocation-based methods — to better understand the trade space between solution accuracy and computational cost.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/trajectory_opt/trajectory_3d.png" alt="3D trajectory plot">
+        </div>
+        <p class="caption">Three-dimensional extension of the optimization framework.</p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / ENGINEERING TAKEAWAYS</span>
+        <h2>LESSONS FROM BUILDING THE FRAMEWORK</h2>
+        <ul class="blueprint-list">
+            <li>Discretization fundamentally shapes the solution space in optimal control problems.</li>
+            <li>Well-scaled formulations outperform sophisticated solvers applied to poorly conditioned systems.</li>
+            <li>Additional control freedom can simplify trajectories when paired with strong constraints.</li>
+            <li>Optimization success depends as much on modeling judgment as on mathematics.</li>
+            <li>Building extensible tools enables rapid experimentation with higher-fidelity dynamics.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single-Cell Wing Structural Analysis | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Single-Cell Wing Structural Analysis</h1>
+        <p class="hero-tagline">Beam Theory · Shear Flow · Torsion · MATLAB Modeling</p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW / HOOK -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>PARAMETRIC WING STRUCTURAL ANALYSIS</h2>
+
+        <p>
+            Modern wing structures must balance stiffness, weight, and increasingly complex loading environments.
+            I developed a parametric structural model to evaluate wing deflection and internal loads under
+            combined aerodynamic and discrete forcing.
+        </p>
+
+        <p>
+            The tool enables configurable spar placement, distributed lift and weight modeling, and user-defined
+            point forces and moments to simulate realistic aircraft scenarios such as engine loads or control
+            surface effects. The goal was to better understand load paths and structural trade-offs early in the
+            design process.
+        </p>
+
+        <p>
+            While the primary focus was full wing behavior, preliminary thin-walled spar studies were also conducted
+            to inform cross-section assumptions used in the higher-level model.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/wing_spar/wing.png" alt="Wing structural model">
+        </div>
+        <p class="caption">
+            Parametric wing model used to study deflection, load distribution, and spar placement sensitivity.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- MODELING APPROACH -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / MODELING APPROACH</span>
+        <h2>BUILDING THE STRUCTURAL FRAMEWORK</h2>
+
+        <p>
+            The wing was discretized spanwise and modeled using beam theory combined with thin-walled shear flow relations.
+            Aerodynamic loading was applied as a distributed lift profile, allowing computation of internal shear forces,
+            bending moments, and torsional moments along the span.
+        </p>
+
+        <p>
+            The MATLAB implementation solved for node displacements, twist distribution, and shear flow around the closed
+            section. Special attention was given to maintaining numerical stability and physical consistency across the span.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/wing_spar/stringers.png" alt="Axial stress distribution along wing stringers computed using MATLAB">
+        </div>
+        <p class="caption">
+            Axial stress distribution along the four wing stringers, illustrating how bending loads are carried by the primary structural members.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- RESULTS -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / RESULTS</span>
+        <h2>DEFLECTION, TWIST, AND SHEAR FLOW INSIGHTS</h2>
+
+        <p>
+            Results showed the expected spanwise growth in bending deflection and highlighted the coupling between lift
+            loading and torsional response. Shear flow distributions around the wing box were consistent with thin-walled
+            closed-section theory.
+        </p>
+
+        <p>
+            Parametric variations in material stiffness and geometric properties demonstrated clear sensitivity in tip
+            deflection and twist, reinforcing the importance of structural efficiency in wing design.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/wing_spar/deflection.png" alt="Wing deflection plot">
+        </div>
+        <p class="caption">
+            Spanwise deflection results illustrating bending growth toward the wing tip.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">04 / ENGINEERING TAKEAWAYS</span>
+        <h2>KEY LESSONS FROM WING STRUCTURAL MODELING</h2>
+
+        <ul class="blueprint-list">
+            <li>Closed-section wing boxes exhibit strong coupling between bending and torsion.</li>
+            <li>Shear flow continuity is critical for accurately predicting torsional stiffness.</li>
+            <li>Spanwise discretization must balance numerical stability with computational efficiency.</li>
+            <li>Material and geometric changes significantly impact tip deflection and twist.</li>
+            <li>Foundational spar studies are valuable, but full wing modeling provides more realistic structural insight.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solid Propulsion | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Solid Rocket Propulsion</h1>
+        <p class="hero-tagline">Internal Ballistics · Hardware Design · Rocket Propulsion Laboratory</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            Grain Design · Structural Hardware · Motor Reliability
+        </p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>PROPULSION SYSTEM DEVELOPMENT</h2>
+
+        <p>
+            As part of UC San Diego’s Rocket Propulsion Laboratory, I contributed to the design and development of a high-performance solid rocket motor targeting a <strong>30,000 ft competition altitude</strong>. My work spanned internal ballistics analysis, manufacturing tooling, and flight-critical hardware.
+        </p>
+
+        <p>
+            I led a grain geometry trade study to shape the motor’s thrust profile, designed a compression-based propellant casting mechanism to improve grain quality, and engineered a head-end ignition bolt capable of sustaining extreme chamber pressures while strengthening the forward closure seal.
+        </p>
+
+        <p>
+            Together, these efforts focused on increasing propulsion reliability while delivering predictable thrust under demanding structural and thermal loads.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="transform: scale(1.04);">
+            <img src="../images/propulsion/thrust.png" alt="Motor thrust curve">
+        </div>
+
+        <p class="caption">
+            Simulated thrust curve for the selected grain configuration using <strong>OpenMotor</strong> software.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- GRAIN DESIGN -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / INTERNAL BALLISTICS</span>
+        <h2>GRAIN GEOMETRY TRADE STUDY</h2>
+
+        <p>
+            Achieving the target altitude required careful control of burn surface evolution throughout the motor operation. I evaluated multiple grain topologies — including BATES, Moon Burner, and Finocyl — comparing burn area progression, structural web limits, and manufacturability.
+        </p>
+
+        <p>
+            The <strong>Finocyl configuration</strong> was ultimately selected for its neutral-to-progressive burn behavior, enabling stable chamber pressure while maximizing delivered impulse.
+        </p>
+
+        <p>
+            This trade study established the internal ballistic foundation of the motor and directly informed downstream structural and performance decisions.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/propulsion/burn.png" alt="Finocyl burn profile">
+        </div>
+
+        <p class="caption">
+            Burn area progression for the Finocyl grain, illustrating how multi-fin geometry tailors thrust evolution over the duration of the burn.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- CASTING MECHANISM -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / MANUFACTURING TOOLING</span>
+        <h2>PROPELLANT CASTING MECHANISM</h2>
+
+        <p>
+            To improve grain consistency, I designed and built a mechanical casting assembly that maintains precise axial alignment of the mandrel while applying controlled compression during the pour.
+        </p>
+
+        <p>
+            The system integrates a <strong>171 lb/in spring</strong> that continuously loads the propellant, forcing trapped air outward and mitigating void formation — a critical factor in preventing unintended burn area growth and pressure excursions.
+        </p>
+
+        <p>
+            The structure was manufactured from <strong>6061-T6 aluminum</strong> with a safety factor of 4.0, ensuring robustness under thermal exposure near propellant melt temperatures (~120°C).
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="height: 420px; background: rgba(255,255,255,0.02);">
+            <model-viewer src="../images/cad/casting_assembly.glb" auto-rotate camera-controls style="width: 100%; height: 100%;"></model-viewer>
+        </div>
+
+        <p class="caption">
+            Compression-based casting assembly engineered to reduce propellant voids and ensure geometric repeatability.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- HEI BOLT -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">04 / FLIGHT HARDWARE</span>
+        <h2>HEAD-END IGNITION BOLT</h2>
+
+        <p>
+            I designed and manufactured a head-end ignition bolt to serve as the motor’s primary forward pressure seal during second-stage ignition.
+        </p>
+
+        <p>
+            The bolt incorporates a precision-drilled internal taper that converts chamber pressure into outward radial force, strengthening the seal as pressure rises — improving closure integrity exactly when structural demand is highest.
+        </p>
+
+        <p>
+            The component was analyzed for peak loads exceeding <strong>3,100 psi</strong>, ensuring reliable ignition without compromising structural margins.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="height: 420px; background: rgba(255,255,255,0.02);">
+            <model-viewer src="../images/cad/hei_bolt.glb" auto-rotate camera-controls style="width: 100%; height: 100%;"></model-viewer>
+        </div>
+
+        <p class="caption">
+            Head-end ignition bolt designed to transform chamber pressure into a stronger mechanical seal.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / ENGINEERING TAKEAWAYS</span>
+        <h2>LESSONS FROM BUILDING FLIGHT HARDWARE</h2>
+
+        <ul class="blueprint-list">
+            <li>Internal ballistic behavior directly shapes structural and manufacturing constraints.</li>
+            <li>Repeatable fabrication processes are essential for predictable motor performance.</li>
+            <li>Hardware should leverage physics — such as pressure-assisted sealing — rather than resist it.</li>
+            <li>Reliable propulsion systems emerge from tight integration between analysis, design, and manufacturing.</li>
+            <li>Engineering judgment is often the deciding factor in flight-ready hardware.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>

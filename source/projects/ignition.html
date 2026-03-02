@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ignition Coil Systems | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Ignition Coil Systems</h1>
+        <p class="hero-tagline">Magnetics Modeling · Particle Swarm Optimization · Test Stand Troubleshooting</p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW / HOOK -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>FROM NOVICE TO SUBJECT MATTER EXPERT</h2>
+
+        <p>
+            At the start of my internship, I had no prior experience with ignition coils. By the end, I became a subject matter expert, designing, modeling, and testing coils that the propulsion team relied on for critical systems.
+        </p>
+
+        <p>
+            My work combined analytical modeling, FEA simulations, optimization algorithms, and hands-on hardware validation to develop coils that met stringent performance, energy, and weight requirements.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="transform: scale(1.02);">
+            <img src="../images/ignition_coil/test_stand.jpeg" alt="Sainirnay with test stand">
+        </div>
+        <p class="caption">
+            Me with the ignition coil test stand — where designs were validated and optimized for performance.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- MODELING & FEMM -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / ANALYTICAL & FEA MODELING</span>
+        <h2>BUILDING ACCURATE MAGNETIC MODELS</h2>
+
+        <p>
+            Initial hand calculations in Excel used textbook equations, but they overestimated energy and failed to capture non-linear core saturation. I integrated <strong>non-linear inductance approximations</strong> to better represent high-current behavior.
+        </p>
+
+        <p>
+            To achieve more realistic predictions, I employed <strong>FEMM (Finite Element Method Magnetics)</strong> to simulate flux density gradients, calculate inductance, and estimate stored energy. This modeling formed the foundation for all subsequent coil design decisions.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/ignition_coil/femm.jpg" alt="FEA Magnetics">
+        </div>
+        <p class="caption">
+            FEMM simulation showing magnetic flux density distribution across the coil core.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- PSO & PARAMETRIC STUDIES -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / OPTIMIZATION</span>
+        <h2>PARAMETRIC DESIGN AND PSO</h2>
+
+        <p>
+            Using Python scripts wrapped around FEMM, I conducted parametric studies on wire gauge, number of primary loops, and core dimensions. To navigate the non-linear design space, I implemented a <strong>Particle Swarm Optimization (PSO)</strong> algorithm, enabling rapid identification of coil configurations that balanced energy, inductance, and weight.
+        </p>
+
+        <p>
+            Designs were evaluated for core saturation, energy storage, and manufacturability. The resulting coils delivered consistent spark energy while remaining lightweight and structurally feasible.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/ignition_coil/pso.gif" alt="PSO Algorithm">
+        </div>
+        <p class="caption">
+            Particle Swarm Optimization used to identify optimal coil parameters in a complex, non-linear design space.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- CONSTRUCTION & TESTING -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">04 / CONSTRUCTION & VALIDATION</span>
+        <h2>FROM DESIGN TO SPARK</h2>
+
+        <p>
+            Coils were wound on CNC machines, accounting for precise primary layering to optimize flux distribution. Challenges included fitting partial layers, spacing, and avoiding core or secondary wire overheating.
+        </p>
+
+        <p>
+            Testing revealed issues with legacy hardware such as <strong>polarity flips</strong> and faulty <strong>diode ladders</strong>. Correcting these allowed verification of coil performance, and measurements closely matched FEMM predictions.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="height: 420px; background: rgba(255,255,255,0.02);">
+            <video controls style="width: 100%; height: 100%;">
+                <source src="../images/ignition_coil/coil_video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="caption">
+            Live spark testing of optimized coils confirmed design performance and reliability.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- LESSONS LEARNED -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / ENGINEERING TAKEAWAYS</span>
+        <h2>LESSONS FROM BUILDING HIGH-PERFORMANCE COILS</h2>
+
+        <ul class="blueprint-list">
+            <li>Iterative modeling + FEA + parametric studies are essential for accurate electromagnetic design.</li>
+            <li>Optimization algorithms like PSO can navigate complex, black-box design spaces when equations fail.</li>
+            <li>Precise manufacturing and coil layering critically impact performance and reliability.</li>
+            <li>Test stand validation often uncovers hidden issues, highlighting the importance of thorough troubleshooting.</li>
+            <li>Failing forward is valuable, but understanding failures ensures meaningful learning.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>
