@@ -2,30 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creative | Sainirnay M.</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/nav-loader.js" defer></script>
+    <title>Raga Classification | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
 </head>
+
 <body>
-    <header id="common-header"></header>
 
-    <div class="container">
-        <h1>Creative Works</h1>
-        <p style="color: var(--text-dim); margin-top: 1rem;">Explorations in algorithmic music and vocal harmony.</p>
+<div class="galaxy-blur"></div>
 
-        <div class="project-grid">
-            <a href="projects/raga-app.html" class="project-card">
-                <h3>01 / Raga Identification App</h3>
-                <p>Developing signal processing algorithms to classify Indian classical ragas based on pitch and structure.</p>
-            </a>
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
 
-            <a href="projects/acapella.html" class="project-card">
-                <h3>02 / A Cappella Ensemble</h3>
-                <p>Focusing on blend, timing, and complex harmonics within ensemble singing.</p>
-            </a>
-        </div>
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Raga Classification</h1>
+        <p class="hero-tagline">Audio Analysis · Carnatic Music · Python</p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW + APPROACH -->
+<section class="project-block split-layout">
+    <div class="text-side">
+
+        <span class="block-number">01 / OVERVIEW & APPROACH</span>
+        <h2>PROJECT GOAL</h2>
+
+        <p>
+            This project explores automatic raga identification from audio recordings of Carnatic music.
+            Rather than treating the problem purely as a machine learning task, the goal is to capture
+            the musical structure that defines each raga.
+        </p>
+
+        <p>
+            Audio recordings are processed using Python and Librosa to estimate pitch over time.
+            The resulting pitch contour is quantized into a discrete sequence of notes.
+        </p>
+
+        <p>
+            Each raga is represented using a custom <strong>signature model</strong> that encodes
+            characteristic note patterns. Extracted note sequences are compared against these
+            signatures using tolerance-based matching, producing candidate ragas ranked by similarity.
+        </p>
+
+        <p>
+            The framework is intentionally transparent and interpretable, allowing musical reasoning
+            to remain visible within the algorithm rather than relying on a purely black-box model.
+        </p>
+
     </div>
 
-    <footer id="common-footer"></footer>
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/raga/signature.png" alt="Raga Signature Scheme">
+        </div>
+
+        <p class="caption">
+            Custom signature for raga that corresponds to western major scale (Sankarabharanam)
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- CHALLENGES + CONTRIBUTION -->
+<section class="project-block">
+
+    <div class="text-side">
+
+        <span class="block-number">02 / CHALLENGES & CONTRIBUTION</span>
+        <h2>MUSICAL COMPLEXITY</h2>
+
+        <figure class="wrap-figure-left">
+            <img src="../images/raga/note_conversion.png"
+                 alt="Note Sequence">
+            <figcaption>
+                Example pitch contour converted into a discrete note sequence used by the raga signature model.
+            </figcaption>
+        </figure>
+
+        <p>
+            Carnatic music presents several challenges for automatic classification because the
+            musical expression is highly fluid and ornamented.
+        </p>
+
+        <ul class="blueprint-list">
+            <li><strong>Gamaka (note slides):</strong> continuous pitch motion makes discrete note detection noisy.</li>
+            <li><strong>Tonic (Sa) detection:</strong> small errors in tonic estimation shift the entire note mapping.</li>
+            <li><strong>Ornament-heavy phrases:</strong> short embellishments can confuse sequence matching.</li>
+        </ul>
+
+        <p>
+            <br>Despite these challenges, the project introduces a structured and interpretable method
+            for representing raga identity. Instead of relying purely on statistical classification,
+            the algorithm encodes musical rules directly into the matching framework.
+        </p>
+
+        <p>
+            This approach establishes a structured foundation for representing raga identity that can later incorporate machine learning methods.
+        </p>
+
+        <p style="margin-top: 1rem; opacity: 0.8;">
+            Project is ongoing and actively being refined
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
 </body>
 </html>

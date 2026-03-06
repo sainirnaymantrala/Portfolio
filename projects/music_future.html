@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raga Classification | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Raga Classification App</h1>
+        <p class="hero-tagline">Audio Processing · Python · Music Analysis</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            Python · Librosa · Machine Learning · Classical Indian Music
+        </p>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>PROJECT FOCUS</h2>
+        <p>
+            The Raga Classification App analyzes sequences of musical notes from audio recordings and identifies the raga being performed.
+            It is designed to help students and researchers quickly classify and understand classical Indian music recordings.
+        </p>
+        <p>
+            The tool leverages audio feature extraction, note quantization, and sequence comparison to match input melodies against a database of known ragas.
+            The app also provides visualizations of note sequences and similarity scores.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card" style="transform: scale(1.04);">
+            <img src="../images/raga_app/ui_screenshot.png" alt="Raga App UI Screenshot">
+        </div>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TECHNICAL APPROACH -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / TECHNICAL APPROACH</span>
+        <h2>ALGORITHM & IMPLEMENTATION</h2>
+        <ul class="blueprint-list">
+            <li>Extracted audio features using <strong>Librosa</strong>, including pitch, onset, and duration.</li>
+            <li>Transformed audio into discrete note sequences representing the melody.</li>
+            <li>Implemented a <strong>Python-based matching algorithm</strong> that compares input sequences with stored ragas using pattern alignment and tolerance checks.</li>
+            <li>Developed the `Raga` class to manage note sequences, compare similarity, and handle missing or repeated notes.</li>
+            <li>Visualized results with note timelines, match scores, and a simple GUI interface for quick classification.</li>
+        </ul>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/raga_app/note_sequence.png" alt="Note Sequence Visualization">
+        </div>
+        <p class="caption">
+            Example of note sequence extracted from an audio recording and matched to a known raga.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- KEY INSIGHT -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / KEY INSIGHT</span>
+        <h2>CHALLENGES & FINDINGS</h2>
+        <p>
+            Handling ornamentations and microtonal variations in Indian classical music proved challenging.
+            By introducing tolerance in note matching and preprocessing with pitch smoothing, the algorithm maintains high classification accuracy.
+        </p>
+        <p>
+            Using sequence-based comparisons rather than only pitch histograms allows the app to distinguish ragas with similar note content but different melodic patterns.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/raga_app/match_score.png" alt="Raga Match Scores">
+        </div>
+        <p class="caption">Similarity scores for candidate ragas against an input melody.</p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- ONGOING WORK -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">04 / ONGOING WORK</span>
+        <h2>IMPROVEMENTS & FUTURE FEATURES</h2>
+        <p>
+            Next steps include implementing real-time audio input and integrating machine learning models for improved robustness.
+            We are also exploring visualization enhancements to show ragas in a musical staff-like format for better interpretability.
+        </p>
+        <p>
+            Expanding the raga database and handling polyphonic recordings are key areas for future development.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/raga_app/future_features.png" alt="Future Features Mockup">
+        </div>
+        <p class="caption">Mockup of proposed improvements and future app features.</p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / LESSONS LEARNED</span>
+        <h2>WHAT I LEARNED BUILDING THIS TOOL</h2>
+        <ul class="blueprint-list">
+            <li>Preprocessing audio correctly is critical for accurate note extraction.</li>
+            <li>Sequence-based matching captures melodic patterns better than statistical pitch distributions alone.</li>
+            <li>Python classes like `Raga` make handling complex musical data modular and maintainable.</li>
+            <li>Visualization of intermediate results helps debug and refine classification logic.</li>
+            <li>Handling real-world audio requires careful tolerance and error management for consistent performance.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>
