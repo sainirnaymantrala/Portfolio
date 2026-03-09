@@ -13,6 +13,11 @@
 
 body { background-color: var(--bg); color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 350; overflow-x: hidden; }
 
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Project page hero spacing */
 .hero-container-project { padding-top: 160px; }
 
@@ -72,16 +77,91 @@ body { background-color: var(--bg); color: var(--accent); font-family: 'Inter', 
     white-space: nowrap;      /* keep subtitle on one line */
 }
 
+/* Scroll indicator */
+
+.scroll-indicator{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-family:'JetBrains Mono';
+    font-size:0.7rem;
+    letter-spacing:3px;
+
+    color:var(--text-dim);
+
+    opacity:0.8;
+    transition:opacity 0.4s ease;
+}
+
+.scroll-indicator:hover{
+    opacity:1;
+}
+
+.scroll-arrow{
+    width:12px;
+    height:12px;
+    margin-top:10px;
+
+    border-right:2px solid var(--text-dim);
+    border-bottom:2px solid var(--text-dim);
+
+    transform:rotate(45deg);
+    animation:scrollBounce 1.6s infinite;
+}
+
+@keyframes scrollBounce{
+
+    0%,100%{
+        transform:rotate(45deg) translateY(0);
+        opacity:0.6;
+    }
+
+    50%{
+        transform:rotate(45deg) translateY(6px);
+        opacity:1;
+    }
+
+}
+
+/* hides arrow after scrolling */
+
+.scroll-hidden{
+    opacity:0;
+    pointer-events:none;
+}
+
+/* ensures featured title isn't hidden behind navbar */
+
+#featured-projects{
+    scroll-margin-top:80px;
+}
+
 
 /* Timeline */
-.timeline-divider { max-width:1200px; margin:250px auto 120px; text-align:center; border-top:1px solid var(--border); padding-top:5rem; }
+.timeline-divider { max-width:1200px; margin:100px auto 162px; text-align:center; border-top:1px solid var(--border); padding-top:5rem; }
 .section-title { font-family:'JetBrains Mono'; font-size:1.2rem; letter-spacing:18px; color:var(--text-dim); }
 
-.timeline-container { position:relative; max-width:1300px; margin:0 auto 400px; display:flex; flex-direction:column; align-items:center; }
+.timeline-container { position:relative; max-width:1300px; margin:0 auto 70px; display:flex; flex-direction:column; align-items:center; }
 .trajectory-axis { position:absolute; top:0; bottom:0; width:2px; display:flex; justify-content:center; }
 .dotted-line { height:100%; border-left:2px dotted rgba(255,255,255,0.6); }
-.rocket-tracker { position:absolute; left:50%; transform:translateX(-50%) rotate(180deg); z-index:10; will-change:top; }
+.rocket-tracker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    z-index: 10;
+    will-change: top;
 
+    /* Optional: limit rocket size so it doesn’t hang over bottom */
+    max-height: 60px; /* matches your SVG height */
+}
 /* ============================= */
 /* TIMELINE ITEM REFINED FOR SYMMETRY */
 /* ============================= */

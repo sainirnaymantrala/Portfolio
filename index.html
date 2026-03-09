@@ -24,26 +24,37 @@
     <section class="hero-container">
         <div class="hero-content">
             <h1 class="hero-title">Hi! my name is <span class="highlight">Sainirnay Mantrala</span></h1>
-            <p class="hero-tagline">Propulsion • Astrodynamics • Music • Problem-Solving</p>
+
+            <p class="hero-tagline">
+                Propulsion • Astrodynamics • Music • Problem-Solving
+            </p>
+
             <div class="hero-blurb">
                 <p>
                     From trajectory design to music, I make ideas happen.
                 </p>
             </div>
         </div>
+
         <!-- Solo Hero Image -->
         <div class="hero-image">
             <img src="images/profile2.png" alt="Sainirnay M.">
         </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#featured-projects" class="scroll-indicator" id="scrollIndicator">
+            <span>VIEW PROJECTS</span>
+            <div class="scroll-arrow"></div>
+        </a>
     </section>
 
     <!-- Featured Projects Divider -->
-    <div class="timeline-divider">
+    <div id="featured-projects" class="timeline-divider">
         <h2 class="section-title">FEATURED PROJECTS</h2>
     </div>
 
     <!-- Featured Projects Timeline (Vertical Zig-Zag) -->
-    <main class="timeline-container">
+    <main id="projects" class="timeline-container">
         <div class="trajectory-axis">
             <div class="dotted-line"></div>
             <div class="rocket-tracker" id="rocket">
@@ -163,13 +174,19 @@
             const timelineHeight = timeline.offsetHeight;
             const scrollY = window.scrollY + (window.innerHeight / 2);
 
-            targetPos = ((scrollY - timelineTop) / timelineHeight) * 100;
-            targetPos = Math.max(0, Math.min(100, targetPos));
+            // Map scroll to 0–1
+            let progress = (scrollY - timelineTop) / timelineHeight;
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Limit rocket movement to 95% so it doesn't overshoot
+            targetPos = progress * 97;
 
             currentPos += (targetPos - currentPos) * 0.08;
             rocket.style.top = `${currentPos}%`;
+
             requestAnimationFrame(updateRocket);
         }
+
         updateRocket();
     </script>
 
