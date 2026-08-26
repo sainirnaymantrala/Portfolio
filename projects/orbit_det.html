@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spacecraft Orbit Determination | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+    <script src="../js/lightbox.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../files/resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">GitHub</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Spacecraft Orbit Determination</h1>
+        <p class="hero-tagline">Orbit Determination · Batch Estimation · Kalman Filtering</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            MATLAB · STM Propagation · Nonlinear Dynamics · Covariance Analysis
+        </p>
+
+        <div style="margin-top: 1.5rem;">
+            <a class="project-resource-link"
+               href="https://github.com/sainirnaymantrala/spacecraft-orbit-determination"
+               target="_blank">
+                GITHUB REPO ↗
+            </a>
+
+            <a class="project-resource-link"
+               href="../files/Orbit_Det_Writeup.pdf"
+               target="_blank"
+               style="margin-left: 1.5rem;">
+                TECHNICAL REPORT ↗
+            </a>
+        </div>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>ORBIT DETERMINATION FROM GROUND TRACKING</h2>
+
+        <p>
+            I developed a nonlinear orbit-determination framework for a Low Earth Orbit satellite using
+            <strong>range (ρ)</strong> and <strong>range-rate (ρ̇)</strong> measurements from three Earth-based tracking stations.
+            The estimator combines nonlinear orbital propagation, analytical measurement sensitivities,
+            state-transition matrices, and statistical estimation to recover the spacecraft trajectory
+            and uncertain model parameters.
+        </p>
+
+        <p>
+            The estimated state contains <strong>18 variables</strong>: spacecraft position and velocity,
+            Earth's gravitational parameter <strong>μ</strong>, the <strong>J₂</strong> gravity coefficient,
+            spacecraft drag coefficient <strong>C<sub>D</sub></strong>, and the coordinates of the three
+            tracking stations.
+        </p>
+
+        <p>
+            The project implements both an iterative <strong>batch least-squares estimator</strong> and a
+            <strong>sequential Kalman filter</strong>, allowing the same tracking problem to be approached
+            from both global and observation-by-observation perspectives.
+        </p>
+    </div>
+
+    <div class="visual-side">
+
+        <!-- FIGURE PLACEHOLDER: ORBIT GEOMETRY -->
+        <div class="image-card">
+            <img src="../images/orbit_det/orbit.png"
+                 alt="LEO spacecraft trajectory and tracking-station geometry">
+        </div>
+
+        <div class="data-strip" style="margin-top: 2rem;">
+
+            <div class="data-item">
+                <span class="block-number">ESTIMATED STATES</span>
+                <p style="font-size:0.95rem;">18</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">TRACKING STATIONS</span>
+                <p style="font-size:0.95rem;">3</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">OBSERVATION ARC</span>
+                <p style="font-size:0.95rem;">~5 hr</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number"><strong>ρ</strong> NOISE</span>
+                <p style="font-size:0.95rem;">1 cm</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number"><strong>ρ̇</strong> NOISE</span>
+                <p style="font-size:0.95rem;">1 mm/s</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BATCH ESTIMATION -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / BATCH ESTIMATION</span>
+        <h2>GLOBAL FIT THROUGH ITERATIVE LEAST SQUARES</h2>
+
+        <p>
+            The batch estimator processes the complete observation arc simultaneously.
+            For each measurement, the instantaneous observation Jacobian is mapped to the initial
+            state through the STM and accumulated into the weighted normal equations.
+        </p>
+
+        <p>
+            The nonlinear problem is solved iteratively: after each least-squares correction,
+            the initial state is updated, the trajectory is repropagated, and the measurement
+            sensitivities are recomputed.
+        </p>
+
+        <p>
+            Starting from the approximate initial orbit, three estimation passes reduced the range
+            residual from approximately <strong>733 m to the centimeter-level measurement-noise floor</strong>.
+        </p>
+
+        <div class="data-strip" style="margin-top: 2rem;">
+            <div class="data-item">
+                <span class="block-number">INITIAL <strong>ρ</strong> RES</span>
+                <p style="font-size:0.95rem;">732.7 m</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">FINAL <strong>ρ</strong> RES</span>
+                <p style="font-size:0.95rem;">0.0097 m</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">ITERATIONS</span>
+                <p style="font-size:0.95rem;">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/orbit_det/batch_convergence.png"
+                 alt="Batch estimation convergence history"
+                 style="width: 100%;">
+        </div>
+
+        <p class="caption">
+            RMS residual convergence across the three nonlinear batch iterations.
+        </p>
+    </div>
+</section>
+
+<div style="max-width: 1200px; margin: 3rem auto 0;">
+    <div class="image-card">
+        <img src="../images/orbit_det/batch_residuals.png"
+             alt="Batch estimator residuals across iterations"
+             style="width: 100%;">
+    </div>
+
+    <p class="caption">
+        Batch range and range-rate residuals across successive nonlinear estimation passes.
+    </p>
+</div>
+
+<div class="flow-line"></div>
+
+<!-- SEQUENTIAL FILTER -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / SEQUENTIAL ESTIMATION</span>
+        <h2>OBSERVATION-BY-OBSERVATION KALMAN FILTERING</h2>
+
+        <p>
+            As an extension to the batch solution, I implemented a sequential Kalman filter that
+            processes observations one at a time. Between measurements, the reference trajectory,
+            state deviation, and covariance are propagated forward using the local STM.
+        </p>
+
+        <p>
+            This formulation is naturally suited to navigation problems where measurements arrive
+            continuously rather than as a complete stored dataset.
+        </p>
+
+        <p>
+            I compared conventional and <strong>Joseph-form covariance updates</strong>, finding that the
+            conventional formulation introduced numerical instability as uncertainty decreased, while the
+            Joseph form maintained a more consistent covariance evolution.
+        </p>
+
+        <div class="data-strip" style="margin-top: 2rem;">
+            <div class="data-item">
+                <span class="block-number">OBSERVATIONS</span>
+                <p style="font-size:0.95rem;">385</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">POST-FIT <strong>ρ</strong> RESIDUAL</span>
+                <p style="font-size:0.95rem;">0.1174 m</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">POST-FIT <strong>ρ̇</strong> RESIDUAL</span>
+                <p style="font-size:0.95rem;">0.0014 m/s</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/orbit_det/sequential_covariance_traces.png"
+                 alt="Sequential filter position and velocity covariance traces"
+                 style="width: 100%;">
+        </div>
+
+        <p class="caption">
+            Position and velocity covariance traces during sequential processing (Joseph-form)
+        </p>
+    </div>
+</section>
+
+<div style="max-width: 1200px; margin: 3rem auto 0;">
+    <div class="image-card">
+        <img src="../images/orbit_det/sequential_residuals.png"
+             alt="Sequential filter pre-fit and post-fit residuals"
+             style="width: 100%;">
+    </div>
+
+    <p class="caption">
+        Pre-fit and post-fit range and range-rate residuals from the sequential filter.
+    </p>
+</div>
+
+<div class="flow-line"></div>
+
+<!-- KEY RESULT -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">04 / KEY RESULT</span>
+        <h2>RANGE VS. RANGE-RATE INFORMATION</h2>
+
+        <p>
+            I separated the tracking data into range-only and range-rate-only solutions to examine
+            how each measurement type constrains the estimated state.
+        </p>
+
+        <p>
+            Both solutions were able to reduce their respective measurement residuals to approximately
+            the assumed noise levels. However, the resulting position uncertainty was dramatically different.
+        </p>
+
+        <p>
+            The range-only solution produced a final position covariance trace of approximately
+            <strong>4.16 × 10<sup>−4</sup> m²</strong>, compared with approximately
+            <strong>3.08 m²</strong> for the range-rate-only solution.
+        </p>
+
+        <p>
+            The result highlights an important estimation principle:
+            <strong>small measurement residuals do not necessarily imply equally strong state observability</strong>.
+            Range directly constrains geometric position, while range-rate primarily provides information
+            about relative motion.
+        </p>
+
+        <div class="data-strip" style="margin-top: 2rem;">
+            <div class="data-item">
+                <span class="block-number"><strong>ρ</strong>-ONLY</span>
+                <p style="font-size:0.95rem;">4.16 × 10<sup>−4</sup> m²</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number"><strong>ρ̇</strong>-ONLY</span>
+                <p style="font-size:0.95rem;">3.08 m²</p>
+            </div>
+
+            <div class="data-item">
+                <span class="block-number">RATIO</span>
+                <p style="font-size:0.95rem;">~7,400×</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/orbit_det/measurement_comparison_ellipsoids.png"
+                 alt="Range-only versus range-rate-only position error ellipsoids"
+                 style="width: 100%;">
+        </div>
+
+        <p class="caption">
+            3σ position-error ellipsoids from range-only and range-rate-only batch solutions.
+            Range produces substantially tighter absolute position determination.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- ENGINEERING TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / ENGINEERING TAKEAWAYS</span>
+        <h2>WHAT I LEARNED BUILDING THE ESTIMATOR</h2>
+
+        <ul class="blueprint-list">
+            <li>
+                <strong>Nonlinear estimation depends on relinearization.</strong>
+                Iterative batch updates substantially reduced the error introduced by the initial linearization.
+            </li>
+
+            <li>
+                <strong>Measurement quality and observability are different concepts.</strong>
+                A measurement can be fit extremely well while still providing relatively weak information
+                about a particular state component.
+            </li>
+
+            <li>
+                <strong>Numerical implementation matters.</strong>
+                Covariance formulations that are equivalent analytically can behave differently under
+                finite-precision arithmetic.
+            </li>
+
+            <li>
+                <strong>Batch and sequential estimators serve different operational needs.</strong>
+                Batch estimation is powerful when a complete dataset is available, while sequential filtering
+                is naturally suited to real-time navigation and continuously arriving measurements.
+            </li>
+
+            <li>
+                <strong>Good estimator architecture starts with clean interfaces.</strong>
+                Separating propagation, dynamics, measurement models, Jacobians, and estimation logic
+                made the software easier to validate and extend.
+            </li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>

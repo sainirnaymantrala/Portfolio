@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kozai-Lidov Dynamics | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+    <script src="../js/lightbox.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../files/resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Kozai-Lidov Dynamics</h1>
+        <p class="hero-tagline">Celestial Mechanics · MATLAB Simulation · Orbital Dynamics</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            Numerical Integration · Parameter Studies · Model Validation
+        </p>
+        <a class="project-resource-link" href="https://github.com/sainirnaymantrala/Kozai-Lidov-Sim" target="_blank">GITHUB REPO ↗</a>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>MODELING LONG-TERM ORBITAL EVOLUTION</h2>
+
+        <p>
+            I built a MATLAB simulation to explore <strong>Kozai-Lidov dynamics</strong>, a mechanism in which gravitational interactions can drive large, long-term changes in an orbit's eccentricity and inclination.
+        </p>
+
+        <p>
+            Starting from a highly inclined, nearly circular orbit, the simulation captures the characteristic exchange between inclination and eccentricity and shows how a seemingly simple initial orbit can evolve dramatically over time.
+        </p>
+
+        <p>
+            The project combines numerical integration with targeted parameter studies, giving me a way to visualize the dynamics while also testing how the model behaves across different initial conditions and assumptions.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/kozai/inclination_eccentricity.jpg" alt="Inclination and eccentricity evolution in a Kozai-Lidov simulation">
+        </div>
+        <p class="caption">
+            Simulated evolution of inclination and eccentricity, showing their coupled oscillation over time.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- SIMULATION -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / SIMULATION</span>
+        <h2>FROM PHYSICS TO A NUMERICAL MODEL</h2>
+
+        <p>
+            I implemented a reduced quadrupole-order model in MATLAB and integrated the resulting equations of motion with <strong>ODE45</strong>. The simulation reconstructs the inner orbit's eccentricity and inclination from its angular momentum and evolves the system over a dimensionless time span.
+        </p>
+
+        <p>
+            I chose a highly inclined initial case to make the characteristic Kozai-Lidov behavior easy to observe, then used the same framework to investigate how the response changes as the initial conditions vary.
+        </p>
+
+        <p>
+            The focus of the project was not simply producing a trajectory, but building a compact simulation that could be used to explore orbital behavior and test the assumptions behind the model.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="data-strip" style="margin-bottom: 1.5rem;">
+            <div class="data-item">
+                <span class="block-number">INITIAL ECCENTRICITY</span>
+                <strong style="font-size: 2rem;">0.01</strong>
+                <span class="caption" style="text-align: left; margin-top: 0.4rem;">Nearly circular orbit</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">INITIAL INCLINATION</span>
+                <strong style="font-size: 2rem;">85°</strong>
+                <span class="caption" style="text-align: left; margin-top: 0.4rem;">Highly inclined case</span>
+            </div>
+        </div>
+
+        <div class="data-strip">
+            <div class="data-item">
+                <span class="block-number">SOLVER</span>
+                <strong style="font-size: 2rem;">ODE45</strong>
+                <span class="caption" style="text-align: left; margin-top: 0.4rem;">Adaptive numerical integration</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">PLATFORM</span>
+                <strong style="font-size: 2rem;">MATLAB</strong>
+                <span class="caption" style="text-align: left; margin-top: 0.4rem;">Simulation and visualization</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- VALIDATION -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">03 / VALIDATION</span>
+        <h2>CHECKING THE MODEL, NOT JUST THE PLOT</h2>
+
+        <p>
+            I included a conservation check to verify that the numerical solution remained consistent with the expected behavior of the simplified model.
+        </p>
+
+        <p>
+            Tracking the conserved quantity over the simulation provided a practical way to distinguish meaningful orbital behavior from numerical error. The result is a model that can be evaluated quantitatively rather than judged only by whether the plots look physically reasonable.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card">
+            <img src="../images/kozai/kozai_conservation.jpg" alt="Kozai integral conservation check">
+        </div>
+        <p class="caption">
+            Numerical conservation check used to assess the stability of the simulation.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- PARAMETER STUDY -->
+<section class="project-block full-width">
+
+    <div class="text-side" style="max-width: 1000px; margin: 0 auto 3rem;">
+        <span class="block-number">04 / PARAMETER STUDIES</span>
+        <h2>EXPLORING THE SPACE AROUND A SINGLE CASE</h2>
+
+        <p>
+            Rather than stopping at one orbital configuration, I swept the initial inclination
+            across a broad range and recorded the maximum eccentricity reached in each simulation.
+        </p>
+
+        <p>
+            The resulting trend makes the <strong>Kozai critical inclination</strong> visible
+            and shows how strongly the orbital response depends on the initial geometry of the system.
+            I also varied the outer-to-inner angular momentum ratio to examine how the simulation
+            behaves as it approaches the <strong>test-particle limit</strong>, connecting the
+            numerical results back to the assumptions of the reduced model.
+        </p>
+    </div>
+
+    <div class="parameter-study-grid">
+
+        <!-- INITIAL INCLINATION STUDY -->
+        <div class="parameter-study-item">
+            <div class="image-card">
+                <img src="../images/kozai/critical_inc.jpg"
+                     alt="Maximum eccentricity versus initial inclination">
+            </div>
+
+            <p class="caption">
+                Highlights transition near the critical inclination.
+            </p>
+        </div>
+
+        <!-- ANGULAR MOMENTUM RATIO STUDY -->
+        <div class="parameter-study-item">
+            <div class="image-card">
+                <img src="../images/kozai/conservation_improves.jpg"
+                     alt="Conservation error versus angular momentum ratio">
+            </div>
+
+            <p class="caption">
+                Trend in conservation error near the test-particle limit.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 800px; margin: 0 auto;">
+        <span class="block-number">05 / ENGINEERING TAKEAWAYS</span>
+        <h2>WHAT THIS PROJECT TAUGHT ME</h2>
+
+        <ul class="blueprint-list">
+            <li>Numerical simulation can make complex orbital behavior intuitive through visualization.</li>
+            <li>Parameter studies reveal more about a dynamical system than a single nominal case.</li>
+            <li>Conservation checks are a useful way to validate numerical models beyond visual inspection.</li>
+            <li>Model assumptions matter just as much as the equations being solved.</li>
+            <li>Good computational tools should make it easy to explore, test, and interpret physical behavior.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>

@@ -25,6 +25,12 @@ html {
 .top-nav { position: fixed; top:0; width:100%; height:80px; display:flex; justify-content:space-between; align-items:center; padding:0 8%; z-index:1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px);}
 .nav-name { text-decoration:none; color: var(--accent); font-weight:600; font-size:0.9rem; letter-spacing:2px; }
 .nav-links a { text-decoration:none; color: var(--text-dim); margin-left:2.5rem; font-size:0.75rem; font-family:'JetBrains Mono'; text-transform:uppercase; transition:0.3s; }
+.nav-links a:hover {
+    color: var(--accent);
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 14px rgba(255, 255, 255, 0.4);
+}
 
 /* Hero Section */
 .hero-container { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; gap: 8%; padding:0 5%; z-index:1; }
@@ -75,6 +81,12 @@ html {
 
 .hero-container-project .hero-tagline {
     white-space: nowrap;      /* keep subtitle on one line */
+}
+
+.hero-content,
+.hero-image,
+.hero-section-links {
+    will-change: opacity, transform;
 }
 
 /* Scroll indicator */
@@ -138,6 +150,187 @@ html {
     pointer-events:none;
 }
 
+.hero-section-links {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    white-space: nowrap;
+
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+}
+
+.hero-section-links a {
+    position: relative;
+
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.hero-section-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transition: width 0.25s ease;
+}
+
+.hero-section-links a:hover {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-section-links a:hover::after {
+    width: 100%;
+}
+
+.hero-section-links span {
+    color: rgba(255, 255, 255, 0.22);
+}
+
+.hero-section-links {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero-section-links.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 10px);
+}
+
+/* =========================================================
+   INDUSTRY & RESEARCH
+   ========================================================= */
+
+.experience-section {
+    width: min(1100px, 88%);
+    margin: 0 auto;
+    padding: 6rem 0 4rem;
+}
+
+.experience-heading {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.experience-kicker {
+    display: block;
+    margin-bottom: 0.7rem;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+
+    opacity: 0.5;
+}
+
+.experience-heading .section-title {
+    margin: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+}
+
+.experience-column {
+    position: relative;
+}
+
+.experience-column-header {
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.experience-entry {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    gap: 1.4rem;
+
+    padding: 2rem 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.experience-year {
+    padding-top: 0.2rem;
+
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.experience-details h3 {
+    margin: 0 0 0.4rem;
+
+    font-size: 1.35rem;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.experience-details p {
+    margin: 0 0 0.65rem;
+
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.experience-focus {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+
+    color: rgba(255, 255, 255, 0.60);
+}
+
+#experience-section {
+    scroll-margin-top: 100px;
+}
+
+
+/* Responsive */
+@media (max-width: 800px) {
+
+    .experience-section {
+        width: 88%;
+        padding: 4rem 0 3rem;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .experience-entry {
+        grid-template-columns: 65px 1fr;
+    }
+}
+
 /* ensures featured title isn't hidden behind navbar */
 
 #featured-projects{
@@ -147,6 +340,7 @@ html {
 
 /* Timeline */
 .timeline-divider { max-width:1200px; margin:100px auto 162px; text-align:center; border-top:1px solid var(--border); padding-top:5rem; }
+
 .section-title { font-family:'JetBrains Mono'; font-size:1.2rem; letter-spacing:18px; color:var(--text-dim); }
 
 .timeline-container { position:relative; max-width:1300px; margin:0 auto 70px; display:flex; flex-direction:column; align-items:center; }
@@ -182,42 +376,33 @@ html {
 }
 
 /* ============================= */
-/* NORMAL ROW: card LEFT, image RIGHT */
+/* TIMELINE SYMMETRIC SPACING     */
 /* ============================= */
 
+/* Normal row: card LEFT, image RIGHT */
 .timeline-item:not(.reverse) .half:first-child {
-    justify-content: flex-end;   /* card hugs center from left */
-    margin-right: 80px;          /* spacing from center */
-    margin-left: 0;
+    align-items: flex-end;
+    margin-right: 80px;
 }
 
 .timeline-item:not(.reverse) .half:last-child {
-    justify-content: flex-start; /* image hugs center from right */
+    align-items: flex-start;
     margin-left: 80px;
-    margin-right: 0;
 }
 
-
-/* ============================= */
-/* REVERSE ROW: image LEFT, card RIGHT */
-/* ============================= */
-
+/* Reverse row: image LEFT, card RIGHT */
 .timeline-item.reverse {
-    flex-direction: row-reverse;  /* swap halves */
+    flex-direction: row-reverse;
 }
 
-/* Reversed rows: push image away from center */
-.timeline-item.reverse .half:last-child {
-    justify-content: flex-start;  /* image hugs center */
-    margin-left: 145px;           /* tweak spacing from center */
-    margin-right: 0;
-}
-
-/* Card half remains the same */
 .timeline-item.reverse .half:first-child {
-    justify-content: flex-end;    /* card hugs center */
+    align-items: flex-start;
+    margin-left: 80px;
+}
+
+.timeline-item.reverse .half:last-child {
+    align-items: flex-end;
     margin-right: 80px;
-    margin-left: 95px;
 }
 
 /* PROJECT IMAGE CONTAINER — SHRINK TO FIT IMAGE */
@@ -240,6 +425,121 @@ html {
     height: 350px;                   /* fixed height for uniformity */
     width: auto;                     /* natural width */
     object-fit: contain;             /* no cropping */
+}
+
+/* =========================================================
+   PARAMETER STUDY — SIDE-BY-SIDE RESULTS
+   ========================================================= */
+
+.parameter-study-grid {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+
+    align-items: start;
+}
+
+.parameter-study-item {
+    min-width: 0;
+}
+
+.parameter-study-item .image-card {
+    width: 100%;
+}
+
+.parameter-study-item .image-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.parameter-study-item .caption {
+    max-width: 520px;
+    margin: 1rem auto 0;
+    line-height: 1.6;
+}
+
+/* Stack plots on smaller screens */
+@media (max-width: 850px) {
+    .parameter-study-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        gap: 3rem;
+    }
+}
+
+/* =========================================================
+   IMAGE LIGHTBOX
+   ========================================================= */
+
+.image-card img {
+    cursor: zoom-in;
+}
+
+/* Full-screen overlay */
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4rem;
+
+    background: rgba(5, 8, 18, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* Open state */
+.image-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Enlarged image */
+.image-lightbox img {
+    display: block;
+
+    max-width: 90vw;
+    max-height: 85vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.55);
+
+    transform: scale(0.96);
+    transition: transform 0.25s ease;
+
+    cursor: zoom-out;
+}
+
+.image-lightbox.active img {
+    transform: scale(1);
+}
+
+/* Prevent page scrolling while open */
+body.lightbox-open {
+    overflow: hidden;
 }
 
 
@@ -309,6 +609,245 @@ filter: blur(110px); z-index: -1; pointer-events: none; }
 .text-side { flex: 1; text-align: left; }
 .visual-side { flex: 1; display: flex; flex-direction: column; align-items: stretch; width: 100%; }
 
+/* =========================================================
+   ADDITIONAL PROJECTS CAROUSEL
+   ========================================================= */
+
+.additional-projects {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0 8rem;
+}
+
+.additional-projects-divider {
+    margin-top: 0px;
+    margin-bottom: 1.5rem;
+}
+
+.additional-projects-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Only this window is visible */
+.additional-projects-viewport {
+    width: 100%;
+    overflow: hidden;
+
+    /* Space for card hover/scale effect */
+    padding: 20px 0;
+    margin: -20px 0;
+}
+
+/* All five cards live in this row */
+.additional-projects-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+
+    width: max-content;
+
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+/* Exactly three cards fit inside the viewport */
+.additional-projects-track .additional-project-card {
+    width: calc((1200px - 4rem) / 3);
+    min-width: calc((1200px - 4rem) / 3);
+    max-width: calc((1200px - 4rem) / 3);
+
+    flex: 0 0 calc((1200px - 4rem) / 3);
+
+    box-sizing: border-box;
+
+    /* Gives them a substantial project-card shape */
+    min-height: 320px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep tags toward bottom of equally sized cards */
+.additional-project-card .tags {
+    margin-top: auto;
+}
+
+.additional-project-card.carousel-clone {
+    pointer-events: auto;
+}
+
+/* =========================================================
+   SIDE ARROWS
+   ========================================================= */
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+
+    transform: translateY(-50%);
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 200;
+    line-height: 1;
+
+    cursor: pointer;
+    opacity: 0.65;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.carousel-arrow-left {
+    left: -55px;
+}
+
+.carousel-arrow-right {
+    right: -55px;
+}
+
+.carousel-arrow:hover {
+    opacity: 1;
+}
+
+.carousel-arrow-left:hover {
+    transform: translateY(-50%) translateX(-3px);
+}
+
+.carousel-arrow-right:hover {
+    transform: translateY(-50%) translateX(3px);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1300px) {
+
+    .additional-projects-carousel {
+        max-width: calc(100% - 120px);
+    }
+
+    .additional-projects-track .additional-project-card {
+        width: calc((100vw - 184px) / 3);
+        min-width: calc((100vw - 184px) / 3);
+        max-width: calc((100vw - 184px) / 3);
+        flex-basis: calc((100vw - 184px) / 3);
+    }
+}
+
+@media (max-width: 900px) {
+
+    .additional-projects-track .additional-project-card {
+        width: calc((100vw - 152px) / 2);
+        min-width: calc((100vw - 152px) / 2);
+        max-width: calc((100vw - 152px) / 2);
+        flex-basis: calc((100vw - 152px) / 2);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .additional-projects-carousel {
+        max-width: calc(100% - 80px);
+    }
+
+    .additional-projects-track .additional-project-card {
+        width: calc(100vw - 80px);
+        min-width: calc(100vw - 80px);
+        max-width: calc(100vw - 80px);
+        flex-basis: calc(100vw - 80px);
+    }
+
+    .carousel-arrow-left {
+        left: -38px;
+    }
+
+    .carousel-arrow-right {
+        right: -38px;
+    }
+}
+
+
+/* --- KEPLER FULL-WIDTH FIGURES --- */
+
+.project-block.full-width {
+    display: block;
+}
+
+.project-block.full-width .text-side {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 3rem;
+}
+
+.project-block.full-width .visual-side {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.project-block.full-width .large-figure {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.project-block.full-width .large-figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-block.full-width .caption {
+    max-width: 900px;
+    margin: 1rem auto 0;
+}
+
+/* Keep the validation figure at its natural aspect ratio */
+.project-block.full-width .validation-figure {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.project-block.full-width .validation-figure img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Kepler project metrics */
+.kepler-metrics {
+    margin-bottom: 3rem;
+}
+
+.kepler-metrics:last-child {
+    margin-bottom: 0;
+}
+
+.kepler-metrics .data-item strong {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
 .image-card { border: 1px solid var(--border); background: rgba(255, 255, 255, 0.01); border-radius: 20px; overflow: hidden; width: 100%; }
 .image-card img { width: 100%; height: auto; display: block; }
 
@@ -343,7 +882,7 @@ filter: blur(110px); z-index: -1; pointer-events: none; }
 .project-block p { font-size: 1.15rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 1.25rem; }
 .caption { font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--text-dim); margin-top: 1rem; text-align: center; }
 
-.project-pdf-link {
+.project-resource-link {
     display: inline-block;
     margin-top: 20px;
     padding: 14px 28px;
@@ -363,7 +902,7 @@ filter: blur(110px); z-index: -1; pointer-events: none; }
 }
 
 /* Hover — mirrors project card behavior */
-.project-pdf-link:hover {
+.project-resource-link:hover {
     border-color: var(--accent);
     background: rgba(255, 255, 255, 0.05);
     transform: translateY(-3px);

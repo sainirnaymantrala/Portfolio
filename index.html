@@ -6,6 +6,7 @@
     <title>Sainirnay M. | Aerospace Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/stars.js" defer></script>
+    <script src="js/carousel.js" defer></script>
 </head>
 <body>
 
@@ -26,7 +27,7 @@
             <h1 class="hero-title">Hi! my name is <span class="highlight">Sainirnay Mantrala</span></h1>
 
             <p class="hero-tagline">
-                Propulsion • Astrodynamics • Music • Problem-Solving
+                Astrodynamics • Astrophysics • Controls • Music
             </p>
 
             <div class="hero-blurb">
@@ -41,11 +42,87 @@
             <img src="images/profile2.png" alt="Sainirnay M.">
         </div>
 
-        <!-- Scroll Indicator -->
-        <a href="#featured-projects" class="scroll-indicator" id="scrollIndicator">
-            <span>VIEW PROJECTS</span>
-            <div class="scroll-arrow"></div>
-        </a>
+        <div class="hero-section-links">
+            <a href="#experience-section">INDUSTRY & RESEARCH</a>
+            <a href="#featured-projects">FEATURED PROJECTS</a>
+            <a href="#additional-projects">ADDITIONAL PROJECTS</a>
+        </div>
+
+    </section>
+
+    <!-- Industry & Research -->
+    <section id="experience-section" class="experience-section">
+
+        <div class="experience-heading">
+            <h2 class="section-title">INDUSTRY & RESEARCH</h2>
+        </div>
+
+        <div class="experience-grid">
+
+            <!-- INDUSTRY -->
+            <div class="experience-column">
+
+                <div class="experience-column-header">
+                    <span>INDUSTRY</span>
+                </div>
+
+                <div class="experience-entry">
+                    <span class="experience-year">2026</span>
+                    <div class="experience-details">
+                        <h3>Intuitive Machines</h3>
+                        <p>Mission Design Intern</p>
+                        <span class="experience-focus">
+                            Lunar Mission Design · Navigation · SPICE
+                        </span>
+                    </div>
+                </div>
+
+                <div class="experience-entry">
+                    <span class="experience-year">2025</span>
+                    <div class="experience-details">
+                        <h3>Intuitive Machines</h3>
+                        <p>Propulsion Intern</p>
+                        <span class="experience-focus">
+                            Propulsion · Electromagnetics · Optimization
+                        </span>
+                    </div>
+                </div>
+
+                <div class="experience-entry">
+                    <span class="experience-year">2024</span>
+                    <div class="experience-details">
+                        <h3>Maxar Technologies</h3>
+                        <p>Aerospace Modeling & Simulation Intern</p>
+                        <span class="experience-focus">
+                            Space Systems · Mission Analysis · Simulation
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RESEARCH -->
+            <div class="experience-column">
+
+                <div class="experience-column-header">
+                    <span>RESEARCH</span>
+                </div>
+
+                <div class="experience-entry">
+                    <span class="experience-year">2024–26</span>
+                    <div class="experience-details">
+                        <h3>UC San Diego - Dr. John Hwang</h3>
+                        <p>Trajectory Optimization Research</p>
+                        <span class="experience-focus">
+                            Astrodynamics · Optimal Control · Numerical Optimization
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
     <!-- Featured Projects Divider -->
@@ -74,29 +151,42 @@
 
         <!-- Timeline Items with Zig-Zag Card+Image -->
 
-        <div class="timeline-item">
+        <div class="timeline-item reverse">
             <div class="half">
-                <a href="projects/ignition.html" class="project-card featured">
-                    <span class="project-date">SUMMER 2025</span>
-                    <h3>Ignition Coil Analysis</h3>
-                    <p>Researched coil-on-plug systems, identifying hardware failure modes like polarity flips and diode faults.</p>
-                    <div class="tags"><span class="tag">Electromagnetics</span><span class="tag">Internship</span></div>
+                <a href="projects/orbit_det.html" class="project-card featured">
+                    <span class="project-date">STATE ESTIMATION</span>
+                    <h3>LEO Orbit Determination</h3>
+                    <p>
+                        Developed batch least-squares and sequential Kalman estimators to reconstruct
+                        a LEO spacecraft trajectory from ground-based range and range-rate measurements,
+                        incorporating J₂ perturbations, atmospheric drag, and STM propagation.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Orbital Mechanics</span>
+                        <span class="tag">Kalman Filtering</span>
+                        <span class="tag">MATLAB</span>
+                    </div>
                 </a>
             </div>
+
             <div class="half">
                 <div class="project-image">
-                    <img src="images/feature/ignition_feature.png" alt="Ignition Coil">
+                    <img src="images/feature/orbit_feature.png"
+                         alt="LEO orbit determination and tracking geometry">
                 </div>
             </div>
         </div>
 
-        <div class="timeline-item reverse">
+        <div class="timeline-item">
             <div class="half">
                 <a href="projects/trajectory.html" class="project-card featured">
                     <span class="project-date">RESEARCH</span>
                     <h3>Trajectory Optimization</h3>
                     <p>Python tool for 3D continuous-thrust transfers using variable timesteps for stable convergence.</p>
-                    <div class="tags"><span class="tag">Python</span><span class="tag">Orbital Mechanics</span></div>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Orbital Mechanics</span>
+                    </div>
                 </a>
             </div>
             <div class="half">
@@ -106,59 +196,175 @@
             </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item reverse">
             <div class="half">
-                <a href="projects/spar.html" class="project-card featured">
-                    <span class="project-date">WINTER 2025</span>
-                    <h3>Structural Wing Optimization</h3>
-                    <p>MATLAB suite for thin-wall spar analysis, achieving 44% weight reduction via Carbon/Epoxy optimization.</p>
-                    <div class="tags"><span class="tag">MATLAB</span><span class="tag">Structural</span></div>
+                <a href="projects/kozai.html" class="project-card featured">
+                    <span class="project-date">ASTRODYNAMICS</span>
+                    <h3>Kozai-Lidov Dynamics</h3>
+                    <p>MATLAB simulation of third-body perturbations demonstrating inclination-eccentricity coupling and long-term orbital evolution.</p>
+                    <div class="tags">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Celestial Mechanics</span>
+                    </div>
                 </a>
             </div>
             <div class="half">
                 <div class="project-image">
-                    <img src="images/feature/spar_feature.png" alt="Wing Spar">
+                    <img src="images/feature/kozai_feature.png" alt="Kozai-Lidov Dynamics">
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="half">
+                <a href="projects/kepler.html" class="project-card featured">
+                    <span class="project-date">ASTROPHYSICS</span>
+                    <h3>Kepler Klean</h3>
+                    <p>Python-based light curve pre-whitening pipeline for extracting periodic stellar signals from photometric data.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Signal Processing</span>
+                    </div>
+                </a>
+            </div>
+            <div class="half">
+                <div class="project-image">
+                    <img src="images/feature/kepler_feature_2.png" alt="Kepler Klean">
                 </div>
             </div>
         </div>
 
         <div class="timeline-item reverse">
             <div class="half">
-                <a href="projects/grain.html" class="project-card featured">
-                    <span class="project-date">JAN 2026</span>
-                    <h3>Solid Rocket Propulsion</h3>
-                    <p>Designed HEI bolts and casting assemblies for student rocket club grain modeling trade studies.</p>
-                    <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Rocketry</span></div>
+                <a href="files/Blended_Wing_Body_Design_Review.pdf"
+                   target="_blank"
+                   class="project-card featured">
+
+                    <span class="project-date">SENIOR DESIGN</span>
+                    <h3>Blended Wing Body Aircraft</h3>
+
+                    <p>
+                        Conceptual design and multidisciplinary optimization of a
+                        250-passenger, long-range blended wing body aircraft.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Aircraft Design</span>
+                        <span class="tag">Design Optimization</span>
+                        <span class="tag">OpenVSP</span>
+                    </div>
                 </a>
             </div>
+
             <div class="half">
                 <div class="project-image">
-                    <img src="images/feature/prop_feature.png" alt="Solid Rocket Propulsion">
+                    <img src="images/feature/bwb_feature.png"
+                         alt="Blended Wing Body Aircraft">
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Additional Horizontal Projects -->
-    <div class="timeline-divider">
+    <div class="timeline-divider additional-projects-divider">
         <h2 class="section-title">ADDITIONAL PROJECTS</h2>
     </div>
-    <section class="horizontal-projects">
-        <div class="project-row">
-            <a href="projects/music.html" class="project-card horizontal">
-                <span class="project-date">SIGNAL PROCESSING</span>
-                <h3>Raga Classifier</h3>
-                <p>Algorithmic music analysis system classifying Indian Classical Ragas via spectral feature extraction.</p>
-                <div class="tags"><span class="tag">Python</span><span class="tag">Audio DSP</span></div>
-            </a>
-            <a href="projects/lspace.html" class="project-card horizontal">
-                <span class="project-date">PROPOSAL</span>
-                <h3>Martian CO2 Cooling System</h3>
-                <p>NASA NPWEE proposal for venting cooling system to manage high-power, short-duration electronics on Mars.</p>
-                <div class="tags"><span class="tag">Thermal Engineering</span><span class="tag">Mars Exploration</span><span class="tag">Robotics</span></div>
-            </a>
+
+    <section id="additional-projects" class="additional-projects">
+
+        <div class="additional-projects-carousel">
+
+            <button class="carousel-arrow carousel-arrow-left"
+                    type="button"
+                    aria-label="Previous projects">
+                ‹
+            </button>
+
+            <div class="additional-projects-viewport">
+                <div class="additional-projects-track">
+
+                    <a href="projects/ignition.html"
+                       class="project-card additional-project-card">
+                        <span class="project-date">INTERNSHIP</span>
+                        <h3>Ignition Coil Analysis</h3>
+                        <p>
+                            Researched coil-on-plug systems, identifying hardware failure
+                            modes including polarity reversals and diode faults.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Electromagnetics</span>
+                            <span class="tag">Particle Swarm Optimization</span>
+                        </div>
+                    </a>
+
+                    <a href="projects/spar.html"
+                       class="project-card additional-project-card">
+                        <span class="project-date">STRUCTURAL ANALYSIS</span>
+                        <h3>Structural Wing Optimization</h3>
+                        <p>
+                            Developed a MATLAB analysis suite for thin-wall wing spars,
+                            reducing structural mass through composite optimization.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">Structures</span>
+                        </div>
+                    </a>
+
+                    <a href="projects/grain.html"
+                       class="project-card additional-project-card">
+                        <span class="project-date">ROCKETRY</span>
+                        <h3>Solid Rocket Propulsion</h3>
+                        <p>
+                            Designed propellant grain geometries, casting hardware, and
+                            ignition components for a student-built high-altitude rocket motor.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Propulsion</span>
+                        </div>
+                    </a>
+
+                    <a href="projects/music.html"
+                       class="project-card additional-project-card">
+                        <span class="project-date">SIGNAL PROCESSING</span>
+                        <h3>Raga Classifier</h3>
+                        <p>
+                            Developed an algorithmic music-analysis system for classifying
+                            Indian classical ragas through spectral feature extraction.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Audio DSP</span>
+                        </div>
+                    </a>
+
+                    <a href="projects/lspace.html"
+                       class="project-card additional-project-card">
+                        <span class="project-date">SPACE SYSTEMS</span>
+                        <h3>Martian CO₂ Cooling System</h3>
+                        <p>
+                            Developed a NASA NPWEE proposal for a venting-based thermal
+                            system supporting high-power, short-duration electronics on Mars.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Thermal Engineering</span>
+                            <span class="tag">Mars Exploration</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <button class="carousel-arrow carousel-arrow-right"
+                    type="button"
+                    aria-label="Next projects">
+                ›
+            </button>
+
         </div>
+
     </section>
 
     <!-- Rocket Script -->
@@ -188,6 +394,44 @@
         }
 
         updateRocket();
+
+        // Hero section navigation fade
+        const heroContent = document.querySelector(".hero-content");
+        const heroImage = document.querySelector(".hero-image");
+        const heroLinks = document.querySelector(".hero-section-links");
+
+        function updateHeroFade() {
+            const scrollY = window.scrollY;
+
+            // Hero begins fading after 50px of scrolling
+            const fadeStart = 50;
+
+            // Hero is fully faded after 500px
+            const fadeEnd = 500;
+
+            let progress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const opacity = 1 - progress;
+            const translateY = -30 * progress;
+
+            if (heroContent) {
+                heroContent.style.opacity = opacity;
+                heroContent.style.transform = `translateY(${translateY}px)`;
+            }
+
+            if (heroImage) {
+                heroImage.style.opacity = opacity;
+                heroImage.style.transform = `translateY(${translateY}px)`;
+            }
+
+            if (heroLinks) {
+                heroLinks.style.opacity = opacity;
+            }
+        }
+
+        window.addEventListener("scroll", updateHeroFade);
+        updateHeroFade();
     </script>
 
 </body>

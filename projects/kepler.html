@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepler Clean | Sainirnay M.</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/stars.js" defer></script>
+    <script src="../js/lightbox.js" defer></script>
+</head>
+<body>
+
+<div class="galaxy-blur"></div>
+
+<nav class="top-nav">
+    <a href="../index.html" class="nav-name">SAINIRNAY M.</a>
+    <div class="nav-links">
+        <a href="../files/resume.pdf" target="_blank">Resume</a>
+        <a href="https://linkedin.com/in/sainirnay-mantrala" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sainirnaymantrala" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<section class="hero-container-project">
+    <div class="hero-content" style="margin: 0 auto;">
+        <h1 class="hero-title">Kepler Clean</h1>
+        <p class="hero-tagline">Astrophysics · Python · Bayesian Signal Processing</p>
+        <p class="hero-tagline" style="margin-top: 1rem; opacity: 0.7;">
+            MCMC · Lomb-Scargle Periodograms · Automated Pre-Whitening
+        </p>
+        <a class="project-resource-link" href="https://github.com/kdcervantes-debug/Kepler-Clean" target="_blank">GITHUB REPO ↗</a>
+        <a class="project-resource-link" href="../files/Kepler_Clean.pdf" target="_blank">PROJECT PDF ↗</a>
+    </div>
+</section>
+
+<main class="container fluid-flow">
+
+<!-- OVERVIEW -->
+<section class="project-block split-layout">
+    <div class="text-side">
+        <span class="block-number">01 / OVERVIEW</span>
+        <h2>AUTOMATING STELLAR SIGNAL EXTRACTION</h2>
+
+        <p>
+            Kepler Clean is a Python pipeline I developed with <strong>Kenneth Cervantes</strong> to automatically pre-whiten A-type star light curves and isolate the periodic signals produced by stellar pulsations. The project was motivated by a practical problem in exoplanet searches: the same pulsations that make A-type stars scientifically interesting can also hide or distort planetary transit signals.
+        </p>
+
+        <p>
+            Instead of relying on a researcher to repeatedly identify frequencies and decide when a light curve is “clean enough,” the pipeline combines frequency analysis, Bayesian inference, and an objective stopping rule.
+        </p>
+
+        <p>
+            The result is a reproducible workflow designed to process large collections of Kepler stars while preserving uncertainty information about the extracted frequencies.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="data-strip kepler-metrics">
+            <div class="data-item">
+                <span class="block-number">STARS VALIDATED</span>
+                <strong>338</strong>
+                <span class="caption">Kepler A-type light curves</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">FULL RECOVERY</span>
+                <strong>64%</strong>
+                <span class="caption">Manual frequency sets fully recovered</span>
+            </div>
+        </div>
+
+        <div class="data-strip kepler-metrics">
+            <div class="data-item">
+                <span class="block-number">MEDIAN OFFSET</span>
+                <strong>4.6 μHz</strong>
+                <span class="caption">Matched-frequency precision</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">RUNTIME</span>
+                <strong>141 s</strong>
+                <span class="caption">Median runtime per star</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- PROBLEM -->
+<section class="project-block split-layout reverse">
+    <div class="text-side">
+        <span class="block-number">02 / THE PROBLEM</span>
+        <h2>REPLACING SUBJECTIVE PRE-WHITENING</h2>
+
+        <p>
+            A-type stars often contain many overlapping pulsation signals. The standard workflow repeatedly identifies a dominant frequency, fits a sinusoid, subtracts it, and continues until the residual appears sufficiently flat.
+        </p>
+
+        <p>
+            The difficult part is deciding when to stop. Stopping too early leaves stellar variability in the data; stopping too late can begin fitting noise or removing useful structure. Manual stopping also means that different analysts can make different decisions from the same light curve.
+        </p>
+
+        <p>
+            Kepler Clean turns that judgment call into a quantitative model-selection problem, making the process more reproducible and easier to scale.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="data-strip kepler-metrics">
+            <div class="data-item">
+                <span class="block-number">REFERENCE SET</span>
+                <strong>337</strong>
+                <span class="caption">A-type stars manually analyzed with Period04</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">OBSERVATION BASELINE</span>
+                <strong>~4 YRS</strong>
+                <span class="caption">Long-cadence Kepler observations</span>
+            </div>
+        </div>
+
+        <div class="data-strip kepler-metrics">
+            <div class="data-item">
+                <span class="block-number">SAMPLING</span>
+                <strong>~30 MIN</strong>
+                <span class="caption">Kepler long cadence</span>
+            </div>
+            <div class="data-item">
+                <span class="block-number">IMPLEMENTATION</span>
+                <strong>PYTHON</strong>
+                <span class="caption">Modular package with unit tests</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- DEMONSTRATION -->
+<section class="project-block full-width">
+    <div class="text-side">
+        <span class="block-number">03 / DEMONSTRATION</span>
+        <h2>KIC 4472465</h2>
+
+        <p>
+            The pipeline was demonstrated on KIC 4472465, a γ Dor / δ Sct hybrid candidate with more than 52,000 long-cadence observations spanning roughly four years.
+        </p>
+
+        <p>
+            Kepler Clean recovered all six frequencies identified manually in Period04 to within <strong>5 × 10⁻⁶ cycles/day</strong> and continued to extract additional components from the residual light curve. The full automated run took about <strong>125 seconds</strong>.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card large-figure">
+            <img src="../images/kepler/kic4472465_results.png" alt="Kepler Clean model comparison for KIC 4472465">
+        </div>
+        <p class="caption">
+            Manual Period04 model compared with the 25-component Kepler Clean model for KIC 4472465.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- VALIDATION -->
+<section class="project-block full-width">
+    <div class="text-side">
+        <span class="block-number">04 / VALIDATION</span>
+        <h2>SCALING FROM ONE STAR TO 338</h2>
+
+        <p>
+            The stronger test was whether the approach generalized across the full reference set. The pipeline was run on all 338 stars and compared against the manually extracted Period04 frequencies.
+        </p>
+
+        <p>
+            Across the population, the pipeline achieved a median <strong>100% recovery</strong> of the manual frequency set, with <strong>64%</strong> of stars achieving complete recovery. Matched frequencies showed a median offset of <strong>4.6 μHz</strong>, while the pipeline found roughly <strong>20 additional components per star</strong> beyond the manual analysis.
+        </p>
+    </div>
+
+    <div class="visual-side">
+        <div class="image-card large-figure validation-figure">
+            <img src="../images/kepler/validation_338.png" alt="Kepler Clean population validation across 338 stars">
+        </div>
+        <p class="caption">
+            Population-level validation showing recovery rate, additional extracted frequencies, frequency precision, and runtime across the full dataset.
+        </p>
+    </div>
+</section>
+
+<div class="flow-line"></div>
+
+<!-- TAKEAWAYS -->
+<section class="project-block lessons-section">
+    <div class="text-side" style="max-width: 950px; margin: 0 auto;">
+        <span class="block-number">05 / TAKEAWAYS</span>
+        <h2>WHAT I TOOK FROM THE PROJECT</h2>
+
+        <ul class="blueprint-list">
+            <li>Automation is most useful when it replaces a subjective decision with a measurable criterion.</li>
+            <li>Bayesian methods can make uncertainty part of the output instead of an afterthought.</li>
+            <li>Efficient numerical design matters when a workflow has to scale from one example star to hundreds.</li>
+            <li>Validation against a human reference set is essential before trusting an automated scientific pipeline.</li>
+            <li>The next step is connecting cleaner residual light curves to downstream transit detection and testing performance with injected synthetic signals.</li>
+        </ul>
+    </div>
+</section>
+
+</main>
+</body>
+</html>
